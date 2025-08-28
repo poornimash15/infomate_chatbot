@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Material Symbols for icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+  <link rel="stylesheet" href="new.css">
+  <title>InfoMate ChatBot</title>
+</head>
+<body>
+  <img src="logo.png" class="avatar">
+  <p class="head">InfoMate</p>
+
+  <div class="container">
+    <header class="app-header">
+      <h1 class="heading">Hello, there</h1>
+      <h2 class="sub-heading">How can I help you?</h2>
+    </header>
+
+    <!-- Suggestions -->
+    <ul class="suggestion">
+      <li class="suggestion-item">
+        <p class="text">Design a home office setup for remote work under 1000$</p>
+        <span class="material-symbols-rounded">draw</span>
+      </li>
+      <li class="suggestion-item">
+        <p class="text">How can I level up my web development?</p>
+        <span class="material-symbols-rounded">lightbulb</span>
+      </li>
+      <li class="suggestion-item">
+        <p class="text">Suggest some useful tools for JavaScript code</p>
+        <span class="material-symbols-rounded">explore</span>
+      </li>
+      <li class="suggestion-item">
+        <p class="text">Create a project for full stack</p>
+        <span class="material-symbols-rounded">code_blocks</span>
+      </li>
+    </ul>
+
+    <!-- Chat Area -->
+    <div class="chat-container">
+      <div class="message user-message"></div>
+      <div class="message bot-message"></div>
+    </div>
+
+    <!-- Prompt Section -->
+    <div class="prompt-container">
+      <div class="prompt-wrapper">
+        <form action="#" class="prompt-form" autocomplete="off" data-wallet-ignored>
+          <input type="text" placeholder="Ask InfoMate" class="prompt-input" required>
+
+          <div class="prompt-actions">
+            <!-- File Upload -->
+            <div class="file-upload-wrapper">
+              <img src="#" class="file-preview">
+              <input type="file" accept="image/*, .pdf, .txt, .csv" id="file-input" hidden>
+              <button id="add-file-btn" type="button" class="material-symbols-rounded">attach_file</button>
+              <button id="cancel-file-btn" type="button" class="material-symbols-rounded">close</button>
+            </div>
+
+
+
+            <!-- Text-to-Speech Toggle -->
+            <button id="tts-toggle-btn" type="button" class="material-symbols-rounded">volume_up</button>
+
+                <!-- Voice Input -->
+            <button id="voice-input-btn" type="button" class="material-symbols-rounded">mic</button>
+            <select id="voiceSelect" style="width: 1rem;; border-radius: 6px;background-color: transparent; border: none;"></select>
+
+            <!-- Stop Response -->
+            <button id="stop-response-btn" type="button" class="material-symbols-rounded">stop_circle</button>
+
+            <!-- Send -->
+            <button id="send-promt-btn" type="submit" class="material-symbols-rounded">arrow_upward</button>
+            <!-- Voice Select Dropdown -->
+
+
+          </div>
+        </form>
+
+        <!-- Theme & Delete -->
+        <button id="theme-toogle-btn" class="material-symbols-rounded">light_mode</button>
+        <button id="delete-chats-btn" class="material-symbols-rounded">delete</button>
+      </div>
+
+      <p class="disclaimer-text">AI can also make mistakes, so double-check it.</p>
+    </div>
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
