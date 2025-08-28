@@ -1,0 +1,425 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+}
+
+body{
+    color: white;
+    background: linear-gradient(135deg, #0f172a, #1e1b4b, #312e81);
+    min-height: 100vh;
+}
+.head{
+    margin-left: 174vh;
+    margin-top: -5.7vh;
+    font-weight: bolder;
+    font-size: 20px;
+}
+body.light-theme {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Chat bot text */
+body.light-theme .chat-container .bot-message .text-message {
+  color: #111111;
+}
+
+/* User message bubble */
+body.light-theme .chat-container .user-message .text-message {
+  background-color: #eaeaea;
+  color: #000000;
+}
+
+/* Prompt form (input box background) */
+body.light-theme .prompt-wrapper .prompt-form {
+  background-color: #f0f0f0;
+}
+
+/* Input text */
+body.light-theme .prompt-form .prompt-input {
+  color: #000000;
+}
+
+body.light-theme .prompt-form .prompt-input::placeholder {
+  color: #666666;
+}
+
+/* Buttons */
+body.light-theme .prompt-wrapper button {
+  background-color: #e0e0e0;
+  color: #000000;
+}
+
+body.light-theme .prompt-wrapper button:hover {
+  background-color: #cccccc;
+}
+
+/* Bot avatar background */
+body.light-theme .chat-container .bot-message .logo {
+  background-color: #dddddd;
+  border-color: #bbbbbb;
+}
+.avatar{
+    margin-left: 185vh;
+    width: 60px;
+    height: 60px;
+}
+
+.container{
+    padding: 32px 0 120px ;
+}
+
+.container:where(.app-header,.suggestion,.message-bot-message,.promt-wrapper,.container,.disclaimer-text){
+    margin: auto;
+    width: 100%;
+    padding: 0 20px;
+    max-width: 1200px ;
+}
+
+.container .app-header{
+     margin-top: -3vh;
+}
+
+.app-header .heading{
+    font-size: 3rem;
+    width: fit-content;
+    background: linear-gradient(90deg, #00aaff, #ff00aa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.app-header .sub-heading{
+    font-size: 2.6rem;
+    margin-top: -5px;
+    background: linear-gradient(90deg, #a6c8ff, #d2bfff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.container .suggestion{
+    display: flex;
+    gap: 15px;
+    margin-top: 14vh;
+    list-style: none;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin-left: 80px;
+}
+body.chats-active .container :where(.app-header, .suggestion){
+     display: none;
+}
+.suggestion {
+    scroll-behavior: smooth;
+    margin-left: 2rem;
+    margin-bottom: 25rem;
+}
+
+.suggestion .suggestion-item{
+    width: 228px;
+    padding: 18px;
+    border-radius: 12px;
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between ;
+    flex-shrink: 0;
+    background-color: #37425e;
+    transition: 0.5s ease;
+}
+
+.suggestion .suggestion-item:hover{
+    background-color   : #44506f;
+    transform: translateY(-5px);
+}
+.suggestion .suggestion-item.text{
+    font-size: 1.1rem;
+}
+.suggestion .suggestion-item span{
+    height: 45px;
+    width: 45px;
+    display: flex;
+    align-self: flex-end;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #00aaff;
+    background-color: #181f2f;
+}
+
+.suggestion .suggestion-item:nth-child(2) span{
+    color: green;
+}
+.suggestion .suggestion-item:nth-child(3) span{
+    color: yellow;
+}
+.suggestion .suggestion-item:nth-child(4) span{
+    color: purple;
+}
+
+.container .chat-container{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+.chat-container{
+    overflow: auto;
+    max-height: calc(100vh - 160px);
+}
+
+.chat-container .bot-message{
+    display:flex;
+    gap:11px;
+    align-items:flex-start;
+    justify-content: flex-start;
+}
+.chat-container .bot-message .text-message{
+    background-color: transparent; /* remove big bubble look */
+    padding: 0;
+    border-radius: 0;
+    max-width: 75%;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #e2e8f0;
+}
+.chat-container .bot-message .logo{
+    height: 40px;
+    width: 40px;
+    flex-shrink: 0;
+    padding: 0; /* removed padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #37425e;
+    border: 1px solid #44506f;
+    overflow: hidden;
+}
+.chat-container .bot-message .logo img{
+    width: 100px;
+    height: 50px;
+    object-fit: cover;
+    margin-bottom: 7.7px;
+}
+
+.chat-container .bot-message.loading .logo{
+    animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.chat-container .user-message{
+    flex-direction: column;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.chat-container .user-message .text-message{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 12px 16px;
+    max-width: 75%;
+    border-radius: 13px 13px 3px 13px;
+    background-color: #37425e;
+}
+.chat-container .user-message .file-attachment{
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    padding: 10px;
+    margin-top: -7px;
+    border-radius: 13px 3px 13px 13px;
+    background-color: #44506f;
+}
+.chat-container .user-message .file-attachment span{
+    color:#00aaff
+}
+
+.chat-container .user-message .img-attachment{
+    width: 50%;
+    margin-top: -7px;
+    border-radius: 13px 3px 13px 13px;
+}
+
+/* Hide the bot avatar by default */
+.bot-message .logo {
+  display: none;
+}
+
+/* Show the avatar only when the message is active */
+.bot-message.active .logo {
+  display: flex;
+}
+
+.prompt-container{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0 28px;
+    padding: 16px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+}
+.prompt-container :where(.prompt-wrapper, .prompt-form, .prompt-action){
+    display: flex;
+    gap: 12px;
+    height: 56px;
+    align-items: center;
+}
+.prompt-wrapper {
+    display: flex;
+    gap: 12px;
+    height: 56px;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.prompt-wrapper .prompt-form{
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    border-radius: 130px;
+    background-color: #37425e;
+}
+.prompt-form .prompt-input{
+    width: 100%;
+    height: 100%;
+    background: none;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    padding-left: 24px;
+    color: #edf3ff;
+}
+.prompt-form .prompt-input::placeholder{
+    color: #c3cdde;
+}
+.prompt-wrapper button{
+    width: 56px;
+    height: 56px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    color: white;
+    background-color: #37425e;
+    transition: 0.5s ease;
+}
+
+.prompt-wrapper :is(button:hover,.file-icon, #cancel-file-btn){
+    background-color : #44506f;
+}
+.prompt-form .prompt-actions{
+
+    margin-right: 7px;
+      display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.prompt-actions button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: #37425e;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+.prompt-form :where(.file-upload-wrapper,button,img){
+    position: relative;
+    height: 39.5px;
+    width: 39.5px;
+}
+
+.prompt-form #send-promt-btn{
+    color: #fff;
+    display: none;
+    background: #00aaff;
+}
+.prompt-form .prompt-input:valid~ .prompt-action #send-promt-btn{
+    display: block;
+}
+.prompt-form #send-promt-btn:hover{
+    background-color: #0264e3;
+}
+
+.prompt-wrapper .prompt-form .file-upload-wrapper :where(button,img){
+    position: absolute;
+    border-radius:50%;
+    object-fit:cover;
+    display: none;
+}
+.prompt-form .file-upload-wrapper #add-file-btn,
+.prompt-form .file-upload-wrapper.active.img-attached img,
+.prompt-form .file-upload-wrapper.active.file-attached .file-icon,
+.prompt-form .file-upload-wrapper.active:hover #cancel-file-btn{
+  display: block;
+}
+.prompt-form .file-upload-wrapper.active #add-file-btn{
+  display: none;
+}
+.prompt-form #cancel-file-btn{
+  color: #d62939;
+}
+.prompt-form #voice-input-btn:hover{
+  color: #d62939;
+}
+.prompt-form .file-icon{
+  color: #00aaff;
+}
+.prompt-form :is(#cancel-file-btn,#stop-response-btn:hover){
+    color: #d62939;
+}
+.prompt-form #stop-response-btn,
+body.bot-responding .prompt-form .file-upload-wrapper{
+    display: none;
+}
+body.bot-responding .prompt-form #stop-response-btn{
+    display: block;
+}
+.prompt-container .disclaimer-text{
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 16px 20px 0;
+    color: #c3cdde;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ✅ Voice waveform visualizer */
+#voice-visualizer {
+  height: 45px;
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+#voice-visualizer.hidden {
+  display: none;
+}
+
+#waveform {
+  width: 100%;
+  height: 100%;
+}
